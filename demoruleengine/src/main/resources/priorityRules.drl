@@ -1,0 +1,50 @@
+package KieRule;
+import com.example.demoruleengine.Client
+
+rule "Gold with seniority"
+
+when
+clientObject : Client(category=="Gold" && seniority>=3);
+then
+clientObject.setPriority(1);
+end;
+
+rule "Silver with seniority"
+
+when
+clientObject : Client(category=="Silver" && seniority>=3);
+then
+clientObject.setPriority(2);
+end;
+
+rule "Platinum with seniority"
+
+when
+clientObject : Client(category=="Platinum" && seniority>=3);
+then
+clientObject.setPriority(3);
+end;
+
+rule "Gold without seniority"
+
+when
+clientObject : Client(category=="Gold" && seniority<3);
+then
+clientObject.setPriority(2);
+end;
+
+rule "Silver without seniority"
+
+when
+clientObject : Client(category=="Silver" && seniority<3);
+then
+clientObject.setPriority(3);
+end;
+
+rule "Platinum without seniority"
+
+when
+clientObject : Client(category=="Platinum" && seniority<3);
+then
+clientObject.setPriority(4);
+end;
