@@ -1,15 +1,20 @@
 **Rule Engine demo using Drools**
 
 **Prerequisites**
-Install Postman
+- Install Postman
 
-This is a demo for integrating Drools Rule Engine with Spring. There is a Client class, that has 4 fields: Name, Category (it can be Gold, Silver, Platinum, paid by client), Seniority (given by the number of years client has been a member), Priority (the priority is given by both Category type and Seniority). 
+This is a demo for integrating Drools Rule Engine with Spring. There is a Client class, that has 4 fields: 
+- Name
+- Category (it can be Gold, Silver, Platinum, paid by client)
+- Seniority (given by the number of years client has been a member)
+- Priority (the priority is given by both Category type and Seniority). 
 The rules that are implemented cover the conditions applied in order to check the priority of a certain client. If Seniority<3, according to category, the client has a certain priority.
+
 Example: Name: John, Category: Silver, Seniority: 3 => Priority: 2
 
 All conditions were stored in a priorityRules.drl file and using Drools (with associated dependencies), we can reconfigure these rules. After we change the rule file, we have to restart the instance of our app.
 
-In order to check the functionality, we use a POST request to http://localhost:8080/client.
+In order to check the functionality, we send a POST request to http://localhost:8080/client.
 
 ![image](https://user-images.githubusercontent.com/65168257/204259656-3daea231-a460-4169-aceb-ac8100b65f27.png)
 
