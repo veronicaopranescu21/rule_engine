@@ -14,7 +14,7 @@ Example: Name: John, Category: Silver, Seniority: 3 => Priority: 2
 
 All conditions were stored in a priorityRules.drl file and using Drools (with associated dependencies), we can reconfigure these rules. After we change the rule file, we have to restart the instance of our app.
 
-In order to check the functionality, we send a POST request to http://localhost:8080/client.
+In order to check the functionality, we send a POST request as JSON to http://localhost:8080/client.
 
 ![image](https://user-images.githubusercontent.com/65168257/204259656-3daea231-a460-4169-aceb-ac8100b65f27.png)
 
