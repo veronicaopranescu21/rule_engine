@@ -15,6 +15,10 @@ After executing the rules, 3 new validation fields were added to JSON response:
 
 ![image](https://user-images.githubusercontent.com/65168257/206048476-9f6ee77a-c052-4a49-bbbf-962bf49ab92a.png)
 
+**Each HTTP request time response is measured:**
+
+![image](https://user-images.githubusercontent.com/65168257/206049223-34fc72e7-c29d-43c5-823d-2df27f7b7200.png)
+
 
 **Next steps to be implemented**
 
