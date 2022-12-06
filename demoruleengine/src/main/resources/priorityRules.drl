@@ -1,50 +1,35 @@
 package KieRule;
-import com.example.demoruleengine.Client
+import com.example.demoruleengine.MessageContent
+import com.example.demoruleengine.Transaction
 
-rule "Gold with seniority"
-
-when
-clientObject : Client(category=="Gold" && seniority>=3);
-then
-clientObject.setPriority(1);
-end;
-
-rule "Silver with seniority"
+rule "Card Number: Only digits and 16 chars"
 
 when
-clientObject : Client(category=="Silver" && seniority>=3);
+$t : Transaction(messageContent.onlyDigits(messageContent.getCardNumber())==true
+              && messageContent.getCardNumber().length()==16);
 then
-clientObject.setPriority(2);
+$t.setCardNumberValidation(true);
+System.out.println("CardNumberCheck");
 end;
 
-rule "Platinum with seniority"
+rule "Month and Year: Only digits and expiration check"
 
 when
-clientObject : Client(category=="Platinum" && seniority>=3);
+$t : Transaction(messageContent.compareDates(messageContent.getExpireMonth,messageContent.getExpireYear)
+              && messageContent.onlyDigits(messageContent.getExpireMonth())==true
+              && messageContent.onlyDigits(messageContent.getExpireYear())==true);
 then
-clientObject.setPriority(3);
+$t.setExpirationDateValidation(true);
+System.out.println("Date is not expired");
 end;
 
-rule "Gold without seniority"
+rule "Security code: Only 3 digits "
 
 when
-clientObject : Client(category=="Gold" && seniority<3);
+$t : Transaction(messageContent.onlyDigits(messageContent.getSecurityCode())==true
+              && messageContent.getSecurityCode().length()==3);
 then
-clientObject.setPriority(2);
+$t.setSecurityCodeValidation(true);
+System.out.println("CVV checked");
 end;
 
-rule "Silver without seniority"
-
-when
-clientObject : Client(category=="Silver" && seniority<3);
-then
-clientObject.setPriority(3);
-end;
-
-rule "Platinum without seniority"
-
-when
-clientObject : Client(category=="Platinum" && seniority<3);
-then
-clientObject.setPriority(4);
-end;
