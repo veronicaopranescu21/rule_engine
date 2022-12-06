@@ -11,6 +11,10 @@ In order to check the functionality, we send a POST request as JSON to http://lo
 
 ![image](https://user-images.githubusercontent.com/65168257/206048151-5593a15d-6b23-40db-ab03-5b316a1c2394.png)
 
+After executing the rules, 3 new validation fields were added to JSON response:
+
+![image](https://user-images.githubusercontent.com/65168257/206048476-9f6ee77a-c052-4a49-bbbf-962bf49ab92a.png)
+
 
 **Next steps to be implemented**
 
